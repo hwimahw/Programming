@@ -34,6 +34,7 @@ main(){
         for(int i = 0; i < len; i++){
             if(line[i] == '\t'){
                 insertGaps(lineWithoutTabs, n, i);
+		i = i + n - 1;
             }else{
                 lineWithoutTabs[i] = line[i];
             }
