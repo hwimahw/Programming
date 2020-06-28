@@ -1,0 +1,27 @@
+MIT/GNU Scheme running under GNU/Linux
+Type `^C' (control-C) followed by `H' to obtain information about interrupts.
+
+Copyright (C) 2011 Massachusetts Institute of Technology
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Image saved on Tuesday February 6, 2018 at 6:31:25 PM
+  Release 9.1.1     || Microcode 15.3 || Runtime 15.7 || SF 4.41
+  LIAR/x86-64 4.118 || Edwin 3.116
+
+1 ]=> (define (expt b n)
+(if (= n 0)
+1
+(* b (expt b (- n 1)))))
+
+;Value: expt
+
+1 ]=> (expt 2 5)
+
+;Value: 32
+
+1 ]=> (define (expt b n)
+(if (= n 1)
+b
+(* b (expt b (- n 1)))))
+

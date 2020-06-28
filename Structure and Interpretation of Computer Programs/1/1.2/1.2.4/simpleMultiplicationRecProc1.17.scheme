@@ -1,0 +1,4 @@
+(define (multiply a b)
+(if (> b 0) (+ a (multiply a (- b 1)))
+0))
+

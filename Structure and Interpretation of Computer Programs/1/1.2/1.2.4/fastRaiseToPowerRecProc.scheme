@@ -1,0 +1,75 @@
+MIT/GNU Scheme running under GNU/Linux
+Type `^C' (control-C) followed by `H' to obtain information about interrupts.
+
+Copyright (C) 2011 Massachusetts Institute of Technology
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Image saved on Tuesday February 6, 2018 at 6:31:25 PM
+  Release 9.1.1     || Microcode 15.3 || Runtime 15.7 || SF 4.41
+  LIAR/x86-64 4.118 || Edwin 3.116
+
+1 ]=> (define (square x)
+(* x x))
+
+;Value: square
+
+1 ]=> (square 5)
+
+;Value: 25
+
+1 ]=> (define (remainder a b)
+(cond ((< (- a b) a))
+((= a 0) 0)
+(else (remainder (- a b) b))))
+
+;Value: remainder
+
+1 ]=> (remainder 2 3)
+
+;Value: #t
+
+1 ]=> (remainder 4 2)
+
+;Value: #t
+
+1 ]=> (define (remainder a b)
+(cond ((< (- a b) 0) a)
+((= a 0) 0)
+(else (remainder (- a b) b))))
+
+;Value: remainder
+
+1 ]=> (remainder 4 2)
+
+;Value: 0
+
+1 ]=> (remainder 2 3)
+
+;Value: 2
+
+1 ]=> (define (even? n)
+(= (remainder n 2) 0))
+
+;Value: even?
+
+1 ]=> (even? 4)
+
+;Value: #t
+
+1 ]=> (even? 3)
+
+;Value: #f
+
+1 ]=> (define (fast-expt b n)
+(cond ((= n 0) 1)
+((even? n) (square (fast-expt b (/ n 2))))
+(else (* b (fast-expt b (- n 1))))))
+
+;Value: fast-expt
+
+1 ]=> (fast-expt 2 5)
+
+;Value: 32
+
+1 ]=> 

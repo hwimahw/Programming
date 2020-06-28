@@ -1,0 +1,19 @@
+(define (remainder a b)
+(cond ((= a 0) 0)
+((< a b) a)
+(else (remainder (- a b) b)))))
+
+(define (!= a b)
+(or (> a b) (< a b)))
+
+(define (double a) (+ a a))
+
+(define (fast-multiply-iter a b)
+(if (!= b 1)
+(if (= (remainder b 2) 0) (double (fast-multiply-iter a (/ b 2)))
+(+ a (fast-multiply-iter a (- b 1))))
+a))
+
+
+(define (fast-multiply a b)
+(fast-multiply-iter a b))

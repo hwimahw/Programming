@@ -1,0 +1,21 @@
+(define (remainder a b)
+(cond ((= a 0) 0)
+((< a b) a)
+(else (remainder (- a b) b)))))
+
+
+(define (square a)
+(* a a))
+
+(define (!= a b)
+(or (> a b) (< a b)))
+
+
+(define (fast-expt-iter a b n)
+(if (!= n 1)
+(if (= (remainder n 2) 0) (fast-expt-iter (* a a) b (/ n 2))
+(fast-expt-iter a (* a b) (- n 1)))
+(* a b)))
+
+(define (fast-expt a n)
+(fast-expt-iter a 1 n))
