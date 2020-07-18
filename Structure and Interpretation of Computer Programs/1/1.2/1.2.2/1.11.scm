@@ -27,7 +27,8 @@ Image saved on Tuesday February 6, 2018 at 6:31:25 PM
 (define (func-iter a b c count)
 (if (= count 0) c
 (func-iter b c (+ a b c) (- count 1))))
-(func-iter 0 1 2 (- n 2)))
+(if (< n 3) n
+(func-iter 0 1 2 (- n 2))))
 
 ;Value: func
 
