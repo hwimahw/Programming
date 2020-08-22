@@ -31,13 +31,16 @@ int insertGaps(char line[], int quantity, int start){
 int workWithLineWithTabul(char line[], char lineWithTabul[], int quantityOfGaps){
     int a = quantityOfGaps / n;
     int b = quantityOfGaps % n;
-    int i = 0;
+    int i;
+    int j;
     for(i = 0; i < a; i++){
         lineWithTabul[i] = '\t';
     }
-    for(int j = i; j < quantityOfGaps; j++){
-        lineWithTabul[j] = ' ';
+    for(j = 0; j < b; j++){
+        lineWithTabul[i] = ' ';
+        i++;
     }
+    lineWithTabul[i] = '\0';
 
 }
 
@@ -50,7 +53,7 @@ int main(){
     int flag = 1;
     while((len = getLine(line, 1000)) > 0){
         for(int i = 0; i < len; i++){
-            if(line[i] != ' '){
+            if(line[i] != ' ' && line[i] != '\n'){
                 flag = 0;
             }
             if(line[i] == ' '){
@@ -59,7 +62,8 @@ int main(){
         }
         if(flag == 1){
             workWithLineWithTabul(line, lineWithTabul, quantityOfGaps);
+            printf("%s\n", lineWithTabul);
         }
+        quantityOfGaps = 0;
     }
 }
-
